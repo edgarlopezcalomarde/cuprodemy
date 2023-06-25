@@ -31,13 +31,11 @@ function Nav() {
         <Image
           src="/assets/images/logo-black.png"
           alt="website logo"
-          width={160}
+          width={200}
           height={200}
           className="object-contain"
         />
       </Link>
-
-
 
       <div className="sm:flex hidden">
         {session?.user ? (
@@ -46,9 +44,7 @@ function Nav() {
               Create course
             </Link>
 
-            <button type="button" onClick={()=> signOut()} className="outline_btn">
-              Sign Out
-            </button>
+            <button type="button" onClick={() => signOut()}></button>
 
             <Link href="/profile">
               <Image

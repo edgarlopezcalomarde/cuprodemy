@@ -60,8 +60,6 @@ function NewCourse() {
 
   return (
     <div>
-      <h3>News</h3>
-
       <Form
         type="Create"
         course={course}

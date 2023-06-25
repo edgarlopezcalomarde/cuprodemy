@@ -3,12 +3,43 @@ import Link from "next/link"
 
 function CoursePage() {
   return (
-    <div className="border">
+    <>
+      <h2 className="subhead_text">Courses</h2>
 
-        <Link href="/course/new" className="btn btn-blue">NEW COURSE</Link>
+      <div  className="responsive-grid">
+          <div  className="glassmorphism prompt_card">
+            <h3>HGOLaaa</h3>
+            <p>Es una pruebas</p>
+          </div>
+
+          <div  className="glassmorphism prompt_card">
+            <h3>HGOLaaa</h3>
+            <p>Es una pruebas</p>
+          </div>
+
+          <div  className="glassmorphism prompt_card">
+            <h3>HGOLaaa</h3>
+            <p>Es una pruebas</p>
+          </div>
+
+          <div  className="glassmorphism prompt_card">
+            <h3>HGOLaaa</h3>
+            <p>Es una pruebas</p>
+          </div>
+          <div  className="glassmorphism prompt_card">
+            <h3>HGOLaaa</h3>
+            <p>Es una pruebas</p>
+          </div>
+
+          <div  className="glassmorphism prompt_card">
+            <h3>HGOLaaa</h3>
+            <p>Es una pruebas</p>
+          </div>
+      </div>
 
 
-    </div>
+
+    </>
   )
 }
 

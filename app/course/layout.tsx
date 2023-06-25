@@ -6,11 +6,9 @@ interface CourseLayoutProps {
 
 function CourseLayout({ children }: CourseLayoutProps) {
   return (
-    <div>
-      <h2>Coourses</h2>
-      {/*Migas de pan incoming*/}
-      <div>{children}</div>
-    </div>
+    <section className="w-full px-4 flex flex-col gap-2">
+      {children}
+    </section>
   );
 }
 

@@ -1,9 +1,11 @@
-import React from 'react'
+import React from "react";
 
-function page() {
-  return (
-    <div>page</div>
-  )
+function ProfilePage({ params }) {
+
+  const {id} = params;
+
+  
+  return <div>{id}</div>;
 }
 
-export default page
+export default ProfilePage;
