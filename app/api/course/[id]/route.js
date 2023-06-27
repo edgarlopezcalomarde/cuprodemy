@@ -7,7 +7,7 @@ export const GET = async (req, { params }) => {
   try {
     await connectToDB();
     const course = await Course.findOne({ id: id });
-    if (!course) return new Response("Prompt Not Found", { status: 404 });
+    if (!course) return new Response("Course Not Found", { status: 404 });
 
     return new Response(JSON.stringify(course), { status: 200 });
   } catch (error) {
@@ -21,19 +21,19 @@ export const PATCH = async (req, { params }) => {
   try {
     await connectToDB();
 
-    const course = Course.findById(params.id);
-    if (!course) return new Response("Prompt Not Found", { status: 404 });
+    const course = await Course.findByIdAndUpdate(params.id, {
+      title,
+      description,
+      author,
+      content,
+      tag,
+    });
 
-    course.author = author;
-    course.title = title;
-    course.content = content;
-    course.tag = tag;
-    course.description = description;
-
-    await course.save();
+    if (!course) return new Response("Course Not Found", { status: 404 });
 
     return new Response("Successfully updated the Course", { status: 200 });
   } catch (error) {
+    console.log(error);
     return new Response("Internal Server Error", { status: 500 });
   }
 };

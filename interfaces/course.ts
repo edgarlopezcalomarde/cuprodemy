@@ -9,7 +9,7 @@
 // }
 
 export interface Course{
-    id: string,
+    _id: string, 
     title: string,
     description: string,
     author: string,
@@ -17,4 +17,10 @@ export interface Course{
     content: string,
 }
 
-export type NewCourse = Omit<Course, "id">
+export type NewCourse = Omit<Course, "_id">
+export type UpdateCourse = NewCourse
+
+
+export interface CourseState {
+    courses: Array<Course>;
+}

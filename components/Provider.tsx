@@ -4,13 +4,12 @@ import { Session } from "next-auth";
 import { SessionProvider } from "next-auth/react"
 
 interface ProviderProps {
-  session: Session;
   children: React.ReactNode;
 }
 
-function Provider({children, session } : ProviderProps) {
+function Provider({children} : ProviderProps) {
   return (
-    <SessionProvider session={session}>
+    <SessionProvider>
       {children}
     </SessionProvider>
   )

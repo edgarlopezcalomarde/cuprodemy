@@ -4,6 +4,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { signIn, signOut, useSession, getProviders } from "next-auth/react";
+import classNames from "classnames";
+import { usePathname } from "next/navigation";
+import { routes } from "@utils/helpers";
+
 
 interface Provider {
   id: string;
@@ -11,6 +15,9 @@ interface Provider {
 }
 
 function Nav() {
+
+
+  const pathname = usePathname();
   const { data: session } = useSession();
 
   const [providers, setProviders] = useState<Array<Provider>>([]);
@@ -25,8 +32,13 @@ function Nav() {
     setUpProviders();
   }, []);
 
+
+  if(pathname === routes.LOGIN || pathname === routes.REGISTER) {
+    return 
+  }
+
   return (
-    <nav className="flex-between w-full mb-16 pt-3 ">
+    <nav className="flex-between w-full mb-16 pt-3">
       <Link href="/" className="flex gap-2 flex-center">
         <Image
           src="/assets/images/logo-black.png"
@@ -44,8 +56,6 @@ function Nav() {
               Create course
             </Link>
 
-            <button type="button" onClick={() => signOut()}></button>
-
             <Link href="/profile">
               <Image
                 src={session?.user?.image ?? "/assets/images/profile.svg"}
@@ -58,17 +68,9 @@ function Nav() {
           </div>
         ) : (
           <>
-            {providers &&
-              Object.values(providers).map((provider: Provider) => (
-                <button
-                  type="button"
-                  key={provider.name}
-                  onClick={() => signIn(provider.id)}
-                  className="black_btn"
-                >
-                  Sign In
-                </button>
-              ))}
+            <Link href="/login" className="black_btn">
+              Sign up
+            </Link>
           </>
         )}
       </div>
@@ -97,7 +99,7 @@ function Nav() {
                   My Profile
                 </Link>
 
-                <Link href="/create-course">Create course</Link>
+                <Link href="/course/news">Create course</Link>
 
                 <button
                   type="button"
@@ -114,17 +116,9 @@ function Nav() {
           </div>
         ) : (
           <>
-            {providers &&
-              Object.values(providers).map((provider: Provider) => (
-                <button
-                  type="button"
-                  key={provider.name}
-                  onClick={() => signIn(provider.id)}
-                  className="black_btn"
-                >
-                  Sign In
-                </button>
-              ))}
+            <Link href="/login" className="black_btn">
+              Sign up
+            </Link>
           </>
         )}
       </div>

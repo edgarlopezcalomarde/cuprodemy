@@ -1,6 +1,10 @@
+
+
 import Nav from "@components/Nav";
 import Provider from "@components/Provider";
+import ReduxProvider from "@redux/ReduxProvider";
 import "@styles/globals.css";
+
 
 export const metadata = {
   title: "Cuprodemy",
@@ -15,7 +19,6 @@ function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
       <body>
-      
         <Provider>
           <div className="main">
             <div className="grid-lines"></div>
@@ -23,7 +26,7 @@ function RootLayout({ children }: RootLayoutProps) {
           </div>
           <main className="app">
             <Nav />
-            {children}
+            <ReduxProvider >{children}</ReduxProvider>
           </main>
         </Provider>
       </body>

@@ -5,6 +5,8 @@ interface CourseLayoutProps {
 }
 
 function CourseLayout({ children }: CourseLayoutProps) {
+
+
   return (
     <section className="w-full px-4 flex flex-col gap-2">
       {children}

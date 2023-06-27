@@ -3,15 +3,16 @@
 import Form from "@components/Form";
 import { useState } from "react";
 import { useSession } from "next-auth/react";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import { NewCourse } from "@interfaces/course";
 
 
 
-function NewCourse() {
+function NewCoursePage() {
 
   const router = useRouter();
   const { data: session } = useSession();
+  if(!session) redirect("/login");
 
   const [submitting, setSubmitting] = useState(false);
   const [course, setCourse] = useState<NewCourse>({
@@ -71,4 +72,4 @@ function NewCourse() {
   );
 }
 
-export default NewCourse;
+export default NewCoursePage;
