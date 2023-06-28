@@ -1,13 +1,3 @@
-// export interface Course{
-//     id: string,
-//     title: string,
-//     description: string,
-//     author: string,
-//     duration: string,
-//     content: string,
-//     tags: Array<string>
-// }
-
 export interface Course{
     _id: string, 
     title: string,
@@ -15,9 +5,10 @@ export interface Course{
     author: string,
     tag: string
     content: string,
+    creator: string
 }
 
-export type NewCourse = Omit<Course, "_id">
+export type NewCourse = Omit<Course, "_id"> & Omit<Course, "creator">
 export type UpdateCourse = NewCourse
 
 

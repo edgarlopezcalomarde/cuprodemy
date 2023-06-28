@@ -31,7 +31,6 @@ function Card({ course }: CardProps) {
         <h3 className="font-inter font-bold text-2xl first-letter:capitalize">
           {title}
         </h3>
-        <p className="font-inter text-slate-500">{author}</p>
         <p className="font-inter font-medium text-bases first-letter:capitalize">
           {description}
         </p>
