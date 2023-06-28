@@ -1,11 +1,21 @@
 import Feed from "@components/Feed";
 
-function Home() {
+export default async function HomePage() {
+
+  const fetchCourses = () => {
+    return fetch("http://localhost:3000/api/course", { cache: "no-store" }).then((data) =>
+      data.json()
+    );
+  };
+
+  const courses = await fetchCourses();
+  
+
   return (
     <section className="w-full flex-center flex-col">
-      <h1 className="head_text text-center">
+      <h1 className="head_text text-center ">
         Create & Share
-        <br className="max-md:hidden" />
+        <br />
         <span className="blue_gradient text-center">Wonderful Courses</span>
       </h1>
 
@@ -14,9 +24,7 @@ function Home() {
         programming courses.
       </p>
 
-      <Feed />
+      <Feed courses={courses} />
     </section>
   );
 }
-
-export default Home;

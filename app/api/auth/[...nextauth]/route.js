@@ -17,18 +17,21 @@ const handler = NextAuth({
     }),
     Credentials({
       type: "credentials",
+
       credentials: {},
       async authorize(credentials, req) {
         const { email, password } = credentials;
 
         await connectToDB();
-
+  
         const user = await User.findOne({ email });
         if (!user) throw new Error("email/password missmatch!");
+
 
         const passwordCorrect = await bcrypt.compare(password, user.password);
         if (!passwordCorrect) throw new Error("email/password missmatch!");
 
+      
         return {
           name: user.name,
           email: user.email,
@@ -43,6 +46,8 @@ const handler = NextAuth({
     },
 
     async session({ session, token }) {
+
+    
       const sessionUser = await User.findOne({
         email: token.email,
       });
@@ -54,6 +59,7 @@ const handler = NextAuth({
     },
 
     async signIn({ user }) {
+
       try {
         await connectToDB();
 

@@ -20,30 +20,34 @@ function Card({ course }: CardProps) {
       });
 
       dispatch(removeCourse({ id }));
-
     } catch (error) {
-      console.log("Failed to delete")
+      console.log("Failed to delete");
     }
-
   };
 
   return (
-    <div className="border">
-      <h3>{title}</h3>
-      <p>{description}</p>
-      <p>{author}</p>
+    <div className="min-h-36 bg-white rounded-md bg-opacity-60 p-4 cursor-pointer shadow flex flex-col  gap-4 items-end  ">
+      <div className="h-full w-full">
+        <h3 className="font-inter font-bold text-2xl first-letter:capitalize">
+          {title}
+        </h3>
+        <p className="font-inter text-slate-500">{author}</p>
+        <p className="font-inter font-medium text-bases first-letter:capitalize">
+          {description}
+        </p>
+      </div>
 
-      <div>
+      <div className="flex gap-2 mb-auto">
         <button
-          className="rounded-full bg-red-500 px-4 py-1 text-white font-normal font-inter"
+          className="rounded-full bg-red-500 px-4 py-1 text-white font-normal font-inter lg:hover:scale-105 transition-all"
           onClick={handleDelete}
         >
           Delete
         </button>
 
         <Link
-          className="rounded-full bg-orange-500 px-4 py-2 text-white font-normal font-inter"
-          href={"/course/update/"+id}
+          className="rounded-full bg-orange-500 px-4 py-2 text-white font-normal font-inter lg:hover:scale-105 transition-all"
+          href={"/course/update/" + id}
         >
           Edit
         </Link>

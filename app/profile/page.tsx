@@ -11,7 +11,7 @@ import { setCourses } from "@redux/slices/courseReducer";
 
 function ProfilePage() {
   const { data: session } = useSession();
-  
+
   const courses = useSelector((data: CourseState) => data.courses);
   const dispatch = useDispatch();
 
@@ -25,27 +25,19 @@ function ProfilePage() {
     if (session?.user.id) fetchCourses();
   }, [dispatch, session?.user.id]);
 
-  if(!session) redirect("/login");
+  if (!session) redirect("/login");
 
   return (
     <section className="w-full">
       <h1 className="head_text text-left">
-        <span className="blue_gradient">Welcome {session?.user.name} </span>
+        <span className="blue_gradient"> {session?.user.name} </span>
       </h1>
-      <p className="desc text-left">Hola</p>
-
-      <button
-        type="button"
-        onClick={() => signOut()}
-        className="bg-slate-600 text-white px-3 py-2 rounded-full"
-      >
-        LogOut
-      </button>
-
-      <ul className="mt-10 grid ">
+      
+      <ul className="courses mt-10">
         {courses.map((course: Course) => (
           <Card key={course._id} course={course} />
         ))}
+     
       </ul>
     </section>
   );

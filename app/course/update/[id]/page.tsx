@@ -14,7 +14,7 @@ interface UpdateCoursePageProps {
 function UpdateCoursePage({ params }: UpdateCoursePageProps) {
   const router = useRouter();
   const { data: session } = useSession();
-  if(!session) redirect("/login");
+  if (!session) redirect("/login");
 
   const [submitting, setSubmitting] = useState(false);
   const [course, setCourse] = useState<UpdateCourse>({
@@ -24,6 +24,8 @@ function UpdateCoursePage({ params }: UpdateCoursePageProps) {
     content: "",
     tag: "",
   });
+
+  console.log(params);
 
   const updateCourse = async (e: any) => {
     e.preventDefault();

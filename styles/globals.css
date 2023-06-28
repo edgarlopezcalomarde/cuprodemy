@@ -55,6 +55,12 @@
   }
 }
 
+
+
+
+
+
+
 /* Tailwind Styles */
 
 .app {
@@ -70,7 +76,7 @@
 }
 
 .head_text {
-  @apply mt-5 text-5xl font-extrabold leading-[1.15] text-black sm:text-6xl;
+  @apply mt-5 text-3xl font-extrabold leading-[1.15] text-black sm:text-4xl md:text-5xl lg:text-6xl;
 }
 
 .subhead_text {
@@ -90,7 +96,7 @@
 }
 
 .desc {
-  @apply mt-5 text-lg text-gray-600 sm:text-xl max-w-2xl;
+  @apply mt-5 text-sm text-gray-600 sm:text-base lg:text-lg xl:text-xl max-w-2xl;
 }
 
 .search_input {
@@ -101,22 +107,10 @@
   @apply w-7 h-7 rounded-full bg-white/10 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur flex justify-center items-center cursor-pointer;
 }
 
-.glassmorphism {
-  @apply rounded-xl border border-gray-200 bg-white/20 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur p-5;
-}
-
-.prompt_layout {
-  @apply space-y-6 py-8 sm:columns-2 sm:gap-6 xl:columns-3;
-}
-
-/* Feed Component */
-.feed {
-  @apply mt-16 mx-auto w-full max-w-xl flex justify-center items-center flex-col gap-2;
-}
 
 /* Form Component */
 .form_textarea {
-  @apply w-full flex rounded-lg h-[285px] mt-2 p-3 text-sm text-gray-500 outline-0 border border-gray-700;
+  @apply w-full flex rounded-lg h-[330px] mt-2 p-3 text-sm text-gray-500 outline-0 border border-gray-700;
 }
 
 .form_input {
@@ -167,9 +161,12 @@
   @apply bg-blue-700;
 }
 
-.responsive-grid {
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+.courses{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
 }
+
 
 .grid-lines {
   background-color: transparent;
@@ -195,3 +192,14 @@
   z-index: 4;
 }
 
+
+.shadow{
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+}
+
+
+pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  text-align: justify;
+}

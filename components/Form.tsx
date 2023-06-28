@@ -1,5 +1,6 @@
 import { NewCourse } from "@interfaces/course";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
 
 interface FormProps {
   type: string;
@@ -16,6 +17,9 @@ function Form({
   submitting,
   handleSubmit,
 }: FormProps) {
+
+  const { data: session } = useSession();
+
   return (
     <section className="w-full max-w-full flex-start flex-col">
       <h1 className="text-left mt-2">
@@ -32,8 +36,8 @@ function Form({
         onSubmit={handleSubmit}
         className="mt-10 w-full  flex flex-col gap-7"
       >
-        <div className="flex flex-col lg:flex-row lg:gap-7">
-          <div className="flex-1">
+        <div className="flex flex-col gap-4 lg:flex-row lg:gap-7">
+          <div className="flex-1 flex flex-col gap-4">
             <label>
               <span className="font-satoshi font-semibold text-base text-gray-700">
                 Title:
@@ -82,9 +86,15 @@ function Form({
             </label>
 
             <label>
-              <span className="font-satoshi font-semibold text-base text-gray-700">
-                Author:
-              </span>
+              <div className="flex justify-between">
+                <span className="font-satoshi font-semibold text-base text-gray-700">
+                  Author:
+                </span>
+
+                <p className="font-inter font-semibold text-blue-600 cursor-pointer" onClick={()=>{
+                   setCourse({ ...course, author: session?.user.name })
+                }}>Me</p>
+              </div>
 
               <input
                 type="text"
@@ -122,7 +132,7 @@ function Form({
           <button
             type="submit"
             disabled={submitting}
-            className="px-5 py-1.5 text-sm bg-primary-orange text-white rounded"
+            className="px-5 py-1.5 text-sm bg-blue-500 text-white rounded"
           >
             {submitting ? `${type}...` : "Submit"}
           </button>

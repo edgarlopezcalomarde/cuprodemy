@@ -3,11 +3,9 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import { signIn, signOut, useSession, getProviders } from "next-auth/react";
-import classNames from "classnames";
+import { signOut, useSession, getProviders } from "next-auth/react";
 import { usePathname } from "next/navigation";
 import { routes } from "@utils/helpers";
-
 
 interface Provider {
   id: string;
@@ -15,8 +13,6 @@ interface Provider {
 }
 
 function Nav() {
-
-
   const pathname = usePathname();
   const { data: session } = useSession();
 
@@ -32,9 +28,8 @@ function Nav() {
     setUpProviders();
   }, []);
 
-
-  if(pathname === routes.LOGIN || pathname === routes.REGISTER) {
-    return 
+  if (pathname === routes.LOGIN || pathname === routes.REGISTER) {
+    return;
   }
 
   return (
@@ -55,6 +50,17 @@ function Nav() {
             <Link href="/course/new" className="black_btn">
               Create course
             </Link>
+
+            <button
+              type="button"
+              onClick={() => {
+                setToggleDropDown(false);
+                signOut({ redirect: true, callbackUrl:"/" });
+              }}
+              className="outline_btn"
+            >
+              Sign Out
+            </button>
 
             <Link href="/profile">
               <Image
@@ -99,7 +105,7 @@ function Nav() {
                   My Profile
                 </Link>
 
-                <Link href="/course/news">Create course</Link>
+                <Link href="/course/new">Create course</Link>
 
                 <button
                   type="button"

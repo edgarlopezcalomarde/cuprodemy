@@ -8,7 +8,7 @@ export const POST = async (res) => {
 
   const dbUser = await User.findOne({ email });
   if (dbUser) {
-    return new Response("Internal Server Error", 500);
+    return new Response("This account already exists", 500);
   }
 
   try {

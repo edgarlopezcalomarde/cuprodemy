@@ -4,9 +4,11 @@ import { connectToDB } from "@utils/database";
 export const GET = async (req, { params }) => {
   const { id } = params;
 
+  console.log(req, id)
+
   try {
     await connectToDB();
-    const course = await Course.findOne({ id: id });
+    const course = await Course.findOne({ _id: id });
     if (!course) return new Response("Course Not Found", { status: 404 });
 
     return new Response(JSON.stringify(course), { status: 200 });
