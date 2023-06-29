@@ -11,12 +11,12 @@ export default async function PublicProfilePage({
   const { id } = params;
 
   const fetchCourses = async () => {
-    const response = await fetch(`http://localhost:3000/api/user/${id}/course`);
+    const response = await fetch(`http://127.0.0.1:3000/api/user/${id}/course`);
     return await response.json();
   };
 
   const fetchUser = async () => {
-    const response = await fetch(`http://localhost:3000/api/user/${id}`);
+    const response = await fetch(`http://127.0.0.1:3000/api/user/${id}`);
     return await response.json();
   };
 

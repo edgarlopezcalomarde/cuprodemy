@@ -1,15 +1,6 @@
 import Feed from "@components/Feed";
 
-export default async function HomePage() {
-
-  const fetchCourses = async () => {
-    return await fetch("http://localhost:3000/api/course", { cache: "no-store" }).then((data) =>
-      data.json()
-    );
-  };
-
-  const courses = await fetchCourses();
-  
+export default function HomePage() {
 
   return (
     <section className="w-full flex-center flex-col">
@@ -24,7 +15,7 @@ export default async function HomePage() {
         programming courses.
       </p>
 
-      <Feed courses={courses} />
+      <Feed />
     </section>
   );
 }

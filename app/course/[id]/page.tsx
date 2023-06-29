@@ -7,8 +7,8 @@ interface CoursePageProps {
 
 export default async function CoursePage({ params }: CoursePageProps) {
   const fetchCourse = async () => {
-    const data = await fetch("http://localhost:3000/api/course/" + params.id);
-    return data.json();
+    const data = await fetch("http://127.0.0.1:3000/api/course/" + params.id);
+    return await data.json();
   };
 
   const course: Course = await fetchCourse();
