@@ -4,7 +4,7 @@ import Credentials from "next-auth/providers/credentials";
 import bcrypt from "bcrypt";
 
 import { connectToDB } from "@utils/database";
-import User from "@models/User";
+import User from "@models/user";
 
 const handler = NextAuth({
   session: {
