@@ -1,4 +1,4 @@
-import Course from "../../../models/course";
+import Course from "@models/course";
 import { connectToDB } from "@utils/database";
 
 export const GET = async () =>{
