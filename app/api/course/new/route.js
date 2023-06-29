@@ -1,5 +1,5 @@
 import { connectToDB } from "@utils/database";
-import Course from "@models/course";
+import Course from "../../../../models/course";
 
 export const POST = async (request) => {
   const { title, description, author, content, tag, userId } = await request.json();
