@@ -8,7 +8,7 @@ interface PublicProfilePageProps {
   params: { id: string };
 }
 
-export default async function PublicProfilePage({
+export default function PublicProfilePage({
   params,
 }: PublicProfilePageProps) {
 
@@ -21,13 +21,15 @@ export default async function PublicProfilePage({
     const fetchCoursesAndUsername = async () => {
       const dataCourse = await fetch(`/api/user/${id}/course`);
       const dataUser = await fetch(`/api/user/${id}`);
+      const user = await dataUser.json()
       setCourses(await dataCourse.json());
-      setUsername(await dataUser.json());
+      setUsername(user.username);
     };
 
     fetchCoursesAndUsername();
   }, []);
 
+  
 
   return (
     <>
