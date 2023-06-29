@@ -1,4 +1,4 @@
-import User from "@models/user";
+import User from "@models/User";
 import { connectToDB } from "@utils/database";
 
 export const GET = async (req, { params }) => {

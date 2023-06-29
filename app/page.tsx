@@ -2,8 +2,8 @@ import Feed from "@components/Feed";
 
 export default async function HomePage() {
 
-  const fetchCourses = () => {
-    return fetch("http://localhost:3000/api/course", { cache: "no-store" }).then((data) =>
+  const fetchCourses = async () => {
+    return await fetch("http://localhost:3000/api/course", { cache: "no-store" }).then((data) =>
       data.json()
     );
   };
