@@ -8,7 +8,7 @@ export interface Course{
     creator: string
 }
 
-export type NewCourse = Omit<Course, "_id"> & Omit<Course, "creator">
+export type NewCourse = Omit<Course, "_id" |  "creator">
 export type UpdateCourse = NewCourse
 
 

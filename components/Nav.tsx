@@ -16,17 +16,9 @@ function Nav() {
   const pathname = usePathname();
   const { data: session } = useSession();
 
-  const [providers, setProviders] = useState<Array<Provider>>([]);
 
   const [toggleDropDown, setToggleDropDown] = useState(false);
 
-  useEffect(() => {
-    const setUpProviders = async () => {
-      const response = await getProviders();
-      setProviders(response);
-    };
-    setUpProviders();
-  }, []);
 
   if (pathname === routes.LOGIN || pathname === routes.REGISTER) {
     return;
